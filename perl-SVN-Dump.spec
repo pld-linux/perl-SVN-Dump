@@ -8,7 +8,7 @@
 Summary:	SVN::Dump - A Perl interface to Subversion dumps
 Name:		perl-SVN-Dump
 Version:	0.04
-Release:	1
+Release:	3
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
@@ -18,8 +18,6 @@ URL:		http://search.cpan.org/dist/SVN-Dump/
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-%if %{with tests}
-%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
