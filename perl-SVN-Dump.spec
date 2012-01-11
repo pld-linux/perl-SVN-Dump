@@ -7,13 +7,13 @@
 %include	/usr/lib/rpm/macros.perl
 Summary:	SVN::Dump - A Perl interface to Subversion dumps
 Name:		perl-SVN-Dump
-Version:	0.04
-Release:	3
+Version:	0.05
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
 Source0:	http://www.cpan.org/modules/by-module/SVN/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	ecef25f8facce359fcec9ab1f341da36
+# Source0-md5:	c7e62a0399e608bdd9b0968829310490
 URL:		http://search.cpan.org/dist/SVN-Dump/
 BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
