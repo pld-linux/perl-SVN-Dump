@@ -4,7 +4,6 @@
 
 %define		pdir	SVN
 %define		pnam	Dump
-%include	/usr/lib/rpm/macros.perl
 Summary:	SVN::Dump - A Perl interface to Subversion dumps
 Name:		perl-SVN-Dump
 Version:	0.05
