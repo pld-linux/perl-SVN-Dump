@@ -7,7 +7,7 @@
 Summary:	SVN::Dump - A Perl interface to Subversion dumps
 Name:		perl-SVN-Dump
 Version:	0.05
-Release:	1
+Release:	2
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
