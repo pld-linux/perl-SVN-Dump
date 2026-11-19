@@ -6,17 +6,21 @@
 %define		pnam	Dump
 Summary:	SVN::Dump - A Perl interface to Subversion dumps
 Name:		perl-SVN-Dump
-Version:	0.05
-Release:	2
+Version:	0.08
+Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-module/SVN/%{pdir}-%{pnam}-%{version}.tar.gz
-# Source0-md5:	c7e62a0399e608bdd9b0968829310490
+Source0:	https://www.cpan.org/modules/by-module/SVN/%{pdir}-%{pnam}-%{version}.tar.gz
+# Source0-md5:	3ad8efbcd5d141902d1b8924465f4e1b
 URL:		http://search.cpan.org/dist/SVN-Dump/
-BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
+%if %{with tests}
+BuildRequires:	perl-PerlIO-gzip
+BuildRequires:	perl-Test-LongString
+BuildRequires:	perl-Test-Simple >= 0.88
+%endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -32,16 +36,16 @@ The most basic thing you can do with SVN::Dump is simply copy a dump.
 %setup -q -n %{pdir}-%{pnam}-%{version}
 
 %build
-%{__perl} Build.PL \
-	destdir=$RPM_BUILD_ROOT \
-	installdirs=vendor
-./Build
+%{__perl} Makefile.PL \
+	INSTALLDIRS=vendor
+%{__make}
 
-%{?with_tests:./Build test}
+%{?with_tests:%{__make} test}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-./Build install
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 cp -a eg/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
